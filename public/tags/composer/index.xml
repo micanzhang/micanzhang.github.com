@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Composer on micanzhang</title>
+    <link>http://micanzhang.github.io/tags/composer/</link>
+    <description>Recent content in Composer on micanzhang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 17 Nov 2014 15:17:22 +0800</lastBuildDate>
+    <atom:link href="http://micanzhang.github.io/tags/composer/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>composer tutorial</title>
+      <link>http://micanzhang.github.io/post/2014-11-17-composer/</link>
+      <pubDate>Mon, 17 Nov 2014 15:17:22 +0800</pubDate>
+      
+      <guid>http://micanzhang.github.io/post/2014-11-17-composer/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://getcomposer.org&#34;&gt;composer&lt;/a&gt;是php的包管理工具,可以方便的管理项目中的各种依赖关系，自动生成加载类.&lt;/p&gt;
+
+&lt;h2 id=&#34;dependences:aeb8321489fc895047399eade8c93310&#34;&gt;Dependences&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;composer&lt;/li&gt;
+&lt;li&gt;php &amp;gt;= 5.4&lt;/li&gt;
+&lt;li&gt;php Mcrypt extension&lt;/li&gt;
+&lt;li&gt;git&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;get-start:aeb8321489fc895047399eade8c93310&#34;&gt;Get Start&lt;/h2&gt;
+
+&lt;p&gt;本教程基于&lt;a href=&#34;http://laravel.com&#34;&gt;laravel&lt;/a&gt;框架，更多关于laravel框架的说明，请访问前面的链接.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$composer create-project laravel/laravel tutorial //创建工程项目
+
+$composer install 　//安装工程依赖
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;保证&lt;strong&gt;tutorial/app/storage&lt;/strong&gt;有写权限&lt;/p&gt;
+
+&lt;p&gt;绑定host后你可以看到一个很漂亮的laravel的介绍页面.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
