@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Arcanist on micanzhang</title>
+    <link>http://micanzhang.github.io/tags/arcanist/</link>
+    <description>Recent content in Arcanist on micanzhang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 18 Nov 2014 15:17:22 +0800</lastBuildDate>
+    <atom:link href="http://micanzhang.github.io/tags/arcanist/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>phabricator and arcanist</title>
+      <link>http://micanzhang.github.io/post/2014-11-18-phabricator-and-arcanist/</link>
+      <pubDate>Tue, 18 Nov 2014 15:17:22 +0800</pubDate>
+      
+      <guid>http://micanzhang.github.io/post/2014-11-18-phabricator-and-arcanist/</guid>
+      <description>
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://phabricator.org&#34;&gt;phabricator&lt;/a&gt; an open source, software engineering platform&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Phabricator is a collection of open source web applications that help software companies build better software.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;主要功能介紹:3100adbb31238124bbe90ebd379d0b62&#34;&gt;主要功能介紹:&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;reviewing and auditing code;&lt;/li&gt;
+&lt;li&gt;hosting Git/Hg/SVN repositories;&lt;/li&gt;
+&lt;li&gt;browsing repositories;&lt;/li&gt;
+&lt;li&gt;tracking bugs or &amp;ldquo;features&amp;rdquo;;&lt;/li&gt;
+&lt;li&gt;hiding stuff from coworkers;&lt;/li&gt;
+&lt;li&gt;and also some other things,like meme generators.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;安裝:3100adbb31238124bbe90ebd379d0b62&#34;&gt;安裝&lt;/h2&gt;
+
+&lt;p&gt;這邊主要討論的是arc的安裝，phabricator的安裝請訪問&lt;a href=&#34;https://secure.phabricator.com/book/phabricator/article/installation_guide/&#34;&gt;官方安裝說明&lt;/a&gt;,同時建議大家可以參考&lt;a href=&#34;https://secure.phabricator.com/book/phabricator/article/arcanist_quick_start/&#34;&gt;arc快速入門&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;首先，安裝依賴:
++ 安裝&lt;a href=&#34;http://www.git-scm.com&#34;&gt;git&lt;/a&gt;.
++ 安裝&lt;a href=&#34;http://php.net/downloads.php&#34;&gt;PHP&lt;/a&gt;, 打開curl擴展.&lt;/p&gt;
+
+&lt;p&gt;安裝arcanist:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ mkdir install_dir/
+$ cd install_dir/
+install_dir/ $ git clone https://github.com/phacility/libphutil.git
+install_dir/ $ git clone https://github.com/phacility/arcanist.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;添加arc到系統PATH環境變量:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//for linux and MAC OSX:
+$ export PATH=&amp;quot;$PATH:/somewhere/arcanist/bin/&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;配置默認編輯器:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ arc set-config editor &amp;quot;\&amp;quot;C:\path\to\some\editor.exe\&amp;quot;&amp;quot;
+
+//Notepad++
+$ arc set-config editor &amp;quot;\&amp;quot;C:\Program Files (x86)\Notepad++\notepad++.exe\&amp;quot; -multiInst -nosession&amp;quot;
+
+//vim
+$ arc set-config editor &amp;quot;\&amp;quot;C:\Program Files (x86)\Git\share\vim\vim73\vim.exe\&amp;quot;&amp;quot;
+
+//GitPad
+$ arc set-config editor &amp;quot;\&amp;quot;C:\Users\yourusername\AppData\Roaming\GitPad\GitPad.exe\&amp;quot;&amp;quot;
+
+//Sublime Text
+$ arc set-config editor &amp;quot;\&amp;quot;C:\Program Files\Sublime Text 2\sublime_text.exe\&amp;quot; -w -n&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;配置和簡單使用:3100adbb31238124bbe90ebd379d0b62&#34;&gt;配置和簡單使用&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://secure.phabricator.com/book/phabricator/article/arcanist_new_project/&#34;&gt;官方参考文档&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;登录&lt;a href=&#34;http://pha&#34;&gt;phabricator&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;添加SSH public key&lt;/li&gt;
+&lt;li&gt;为工程项目添加arc配置文件&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;安裝授權證書：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ arc install-certificate
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;.arcconfig&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    &amp;quot;phabricator.uri&amp;quot;: &amp;quot;http://pha&amp;quot;, //pha仓库地址
+    &amp;quot;repository.callsign&amp;quot;: &amp;quot;WEBMAIN&amp;quot;, //项目唯一标识(全大写)
+    &amp;quot;project.name&amp;quot;: &amp;quot;WebClient&amp;quot;,  //项目名称(可选)
+    &amp;quot;unit.engine&amp;quot;: &amp;quot;PHPUnitTestEngine&amp;quot;, //测试引擎
+    &amp;quot;phpunit_config&amp;quot;: &amp;quot;phpunit.xml&amp;quot;, //phpunit测试配置文件
+    &amp;quot;load&amp;quot;: [
+        &amp;quot;libcustom&amp;quot;  //arc第三方库，这边是测试引擎所在的库
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;.arclint&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    &amp;quot;exclude&amp;quot;: [
+        &amp;quot;(^externals/)&amp;quot;,
+        &amp;quot;(\\.lint-test$)&amp;quot;
+    ],
+    &amp;quot;linters&amp;quot;: {
+        &amp;quot;chmod&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;chmod&amp;quot;
+        },
+        &amp;quot;filename&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;filename&amp;quot;
+        },
+        &amp;quot;generated&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;generated&amp;quot;
+        },
+        &amp;quot;json&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;json&amp;quot;,
+            &amp;quot;include&amp;quot;: [
+                &amp;quot;(^\\.arcconfig$)&amp;quot;,
+                &amp;quot;(^\\.arclint$)&amp;quot;,
+                &amp;quot;(\\.json$)&amp;quot;
+            ]
+        },
+        &amp;quot;merge-conflict&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;merge-conflict&amp;quot;
+        },
+        &amp;quot;nolint&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;nolint&amp;quot;
+        },
+        &amp;quot;phutil-library&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;phutil-library&amp;quot;,
+            &amp;quot;include&amp;quot;: &amp;quot;(\\.php$)&amp;quot;
+        },
+        &amp;quot;phutil-xhpast&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;phutil-xhpast&amp;quot;,
+            &amp;quot;include&amp;quot;: &amp;quot;(\\.php$)&amp;quot;
+        },
+        &amp;quot;spelling&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;spelling&amp;quot;,
+            &amp;quot;exclude&amp;quot;: &amp;quot;(resources/spelling/.*\\.json$)&amp;quot;
+        },
+        &amp;quot;text&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
+        },
+        &amp;quot;xhpast&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;xhpast&amp;quot;,
+            &amp;quot;include&amp;quot;: &amp;quot;(\\.php$)&amp;quot;,
+            &amp;quot;severity&amp;quot;: {
+                &amp;quot;16&amp;quot;: &amp;quot;advice&amp;quot;,
+                &amp;quot;34&amp;quot;: &amp;quot;error&amp;quot;
+            },
+            &amp;quot;xhpast.php-version&amp;quot;: &amp;quot;5.2.3&amp;quot;,
+            &amp;quot;xhpast.php-version.windows&amp;quot;: &amp;quot;5.3.0&amp;quot;
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: .arcconfig是必須的，.arclint則不是.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;arc命令:3100adbb31238124bbe90ebd379d0b62&#34;&gt;arc命令&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;$ arc help //帮助命令
+$ arc version //查看版本
+$ arc feature Start working on sth
+$ arc cover //who should review my change 
+$ arc patch //apply someone&#39;s revision
+$ arc diff //检查代码修改，并提交pha
+$ arc land //push commit
+$ arc unit //run testcase
+$ arc liberate
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

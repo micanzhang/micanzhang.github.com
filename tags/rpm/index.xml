@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rpm on micanzhang</title>
+    <link>http://micanzhang.github.io/tags/rpm/</link>
+    <description>Recent content in Rpm on micanzhang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 03 Dec 2014 15:17:22 +0800</lastBuildDate>
+    <atom:link href="http://micanzhang.github.io/tags/rpm/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>uninstall google chrome in fedora</title>
+      <link>http://micanzhang.github.io/post/2014-12-03-uninstall-google-chrome-in-fedora/</link>
+      <pubDate>Wed, 03 Dec 2014 15:17:22 +0800</pubDate>
+      
+      <guid>http://micanzhang.github.io/post/2014-12-03-uninstall-google-chrome-in-fedora/</guid>
+      <description>&lt;p&gt;Open up a terminal, and enter:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rpm -qa | grep google-chrome
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Look at see if you can find the installed chrome package, maybe not only one, just choice which one you want to uninstall, enter:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rpm -e &amp;lt;chrome-package-name-here&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rpm -e google-chrome-unstable-41.0.2224.3-1.x86_64
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;rpm -e&lt;/strong&gt; is a way to remove packege in fedora.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Note&lt;/strong&gt;: this post based on &lt;a href=&#34;http://superuser.com/questions/281726/how-do-i-uninstall-google-chrome-in-fedora&#34;&gt;http://superuser.com/questions/281726/how-do-i-uninstall-google-chrome-in-fedora&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
