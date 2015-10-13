@@ -1,0 +1,1195 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on micanzhang</title>
+    <link>http://micanzhang.github.io/post/</link>
+    <description>Recent content in Posts on micanzhang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 13 Oct 2015 11:33:41 +0800</lastBuildDate>
+    <atom:link href="http://micanzhang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>mysql alter table alter change modify column</title>
+      <link>http://micanzhang.github.io/post/mysql-alter-table-alter-change-modify-column/</link>
+      <pubDate>Tue, 13 Oct 2015 11:33:41 +0800</pubDate>
+      
+      <guid>http://micanzhang.github.io/post/mysql-alter-table-alter-change-modify-column/</guid>
+      <description>
+
+&lt;h1 id=&#34;mysql-alter-table-alter-vs-change-vs-modify-column:9a0cf10a1efc74bebebd289c50b1ada1&#34;&gt;MySQL ALTER TABLE: ALTER vs CHANGE vs MODIFY COLUMN&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;引用自&lt;a href=&#34;http://hoelz.ro/ref/mysql-alter-table-alter-change-modify-column&#34;&gt;http://hoelz.ro/ref/mysql-alter-table-alter-change-modify-column&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Whenever I have to change a column in MySQL (which isn&amp;rsquo;t that often), I always forget the difference between ALTER COLUMN, CHANGE COLUMN, and MODIFY COLUMN. Here&amp;rsquo;s a handy reference.&lt;/p&gt;
+
+&lt;p&gt;##ALTER COLUMN&lt;/p&gt;
+
+&lt;p&gt;Used to set or remove the default value for a column. Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;ALTER TABLE MyTable ALTER COLUMN foo SET DEFAULT &#39;bar&#39;;
+ALTER TABLE MyTable ALTER COLUMN foo DROP DEFAULT;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;##CHANGE COLUMN&lt;/p&gt;
+
+&lt;p&gt;Used to rename a column, change its datatype, or move it within the schema. Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;ALTER TABLE MyTable CHANGE COLUMN foo bar VARCHAR(32) NOT NULL FIRST;
+ALTER TABLE MyTable CHANGE COLUMN foo bar VARCHAR(32) NOT NULL AFTER baz;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;##MODIFY COLUMN&lt;/p&gt;
+
+&lt;p&gt;Used to do everything CHANGE COLUMN can, but without renaming the column. Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;ALTER TABLE MyTable MODIFY COLUMN foo VARCHAR(32) NOT NULL AFTER baz;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The official documentation for ALTER TABLE (for MySQL 5.1) is &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.1/en/alter-table.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>kubernetes notes</title>
+      <link>http://micanzhang.github.io/post/2015-07-22-kubernetes-notes/</link>
+      <pubDate>Wed, 22 Jul 2015 15:17:22 +0800</pubDate>
+      
+      <guid>http://micanzhang.github.io/post/2015-07-22-kubernetes-notes/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=Fcb4aoSAZ98&#34;&gt;Docker Containers and Kubernetes with Brian Dorsey&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;docker container is just a isolated process.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;import-concepts:4027a20f0efcd11f678bb1642890c29c&#34;&gt;import concepts&lt;/h2&gt;
+
+&lt;h3 id=&#34;pod:4027a20f0efcd11f678bb1642890c29c&#34;&gt;Pod&lt;/h3&gt;
+
+&lt;p&gt;means a docker container or some docker container which connectly tighly&lt;/p&gt;
+
+&lt;h3 id=&#34;label:4027a20f0efcd11f678bb1642890c29c&#34;&gt;Label&lt;/h3&gt;
+
+&lt;p&gt;key value&lt;/p&gt;
+
+&lt;h3 id=&#34;replacation-controller:4027a20f0efcd11f678bb1642890c29c&#34;&gt;replacation controller&lt;/h3&gt;
+
+&lt;p&gt;interactive&lt;/p&gt;
+
+&lt;h3 id=&#34;service:4027a20f0efcd11f678bb1642890c29c&#34;&gt;service&lt;/h3&gt;
+
+&lt;p&gt;load balance&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>introducing JSON</title>
+      <link>http://micanzhang.github.io/post/2015-01-18-introducing-json/</link>
+      <pubDate>Sun, 18 Jan 2015 15:17:22 +0800</pubDate>
+      
+      <guid>http://micanzhang.github.io/post/2015-01-18-introducing-json/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;最近处理thrift的TJsonProtocol时，对json格式需要完整的了解，网上所有了一下，发现了&lt;a href=&#34;http://json.org&#34;&gt;json.org&lt;/a&gt;的这部分内容，有必要记录下来，方便随时查询。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;JSON&lt;/strong&gt; (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate. It is based on a subset of the &lt;a href=&#34;http://javascript.crockford.com/&#34;&gt;JavaScript Programming Language&lt;/a&gt;, &lt;a href=&#34;http://www.ecma-international.org/publications/files/ecma-st/ECMA-262.pdf&#34;&gt;Standard ECMA-262 3rd Edition - December 1999&lt;/a&gt;. JSON is a text format that is completely language independent but uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C#, Java, JavaScript, Perl, Python, and many others. These properties make JSON an ideal data-interchange language.&lt;/p&gt;
+
+&lt;p&gt;JSON is built on two structures:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A collection of name/value pairs. In various languages, this is realized as an object, record, struct, dictionary, hash table, keyed list, or associative array.&lt;/li&gt;
+&lt;li&gt;An ordered list of values. In most languages, this is realized as an array, vector, list, or sequence.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These are universal data structures. Virtually all modern programming languages support them in one form or another. It makes sense that a data format that is interchangeable with programming languages also be based on these structures.&lt;/p&gt;
+
+&lt;p&gt;In JSON, they take on these forms:&lt;/p&gt;
+
+&lt;p&gt;An object is an unordered set of name/value pairs. An object begins with { (left brace) and ends with } (right brace). Each name is followed by : (colon) and the name/value pairs are separated by , (comma).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://json.org/object.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;An array is an ordered collection of values. An array begins with &lt;a href=&#34;right bracket&#34;&gt; (left bracket) and ends with &lt;/a&gt;. Values are separated by , (comma).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://json.org/array.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A value can be a string in double quotes, or a number, or true or false or null, or an object or an array. These structures can be nested.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://json.org/value.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A string is a sequence of zero or more Unicode characters, wrapped in double quotes, using backslash escapes. A character is represented as a single character string. A string is very much like a C or Java string.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://json.org/string.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A number is very much like a C or Java number, except that the octal and hexadecimal formats are not used.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://json.org/number.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Whitespace can be inserted between any pair of tokens. Excepting a few encoding details, that completely describes the language.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Note:&lt;/strong&gt; this artical copyed from &lt;a href=&#34;http://json.org&#34;&gt;json.org&lt;/a&gt;,all right belongs to json.org&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>uninstall google chrome in fedora</title>
+      <link>http://micanzhang.github.io/post/2014-12-03-uninstall-google-chrome-in-fedora/</link>
+      <pubDate>Wed, 03 Dec 2014 15:17:22 +0800</pubDate>
+      
+      <guid>http://micanzhang.github.io/post/2014-12-03-uninstall-google-chrome-in-fedora/</guid>
+      <description>&lt;p&gt;Open up a terminal, and enter:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rpm -qa | grep google-chrome
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Look at see if you can find the installed chrome package, maybe not only one, just choice which one you want to uninstall, enter:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rpm -e &amp;lt;chrome-package-name-here&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rpm -e google-chrome-unstable-41.0.2224.3-1.x86_64
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;rpm -e&lt;/strong&gt; is a way to remove packege in fedora.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Note&lt;/strong&gt;: this post based on &lt;a href=&#34;http://superuser.com/questions/281726/how-do-i-uninstall-google-chrome-in-fedora&#34;&gt;http://superuser.com/questions/281726/how-do-i-uninstall-google-chrome-in-fedora&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>mercy</title>
+      <link>http://micanzhang.github.io/post/2014-11-19-mercy/</link>
+      <pubDate>Wed, 19 Nov 2014 15:17:22 +0800</pubDate>
+      
+      <guid>http://micanzhang.github.io/post/2014-11-19-mercy/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;这个故事是我从&amp;lt;&amp;lt;布达佩斯之恋&amp;gt;&amp;gt;中看到的，纳粹军官汉斯去餐厅吃完，吃完后让餐厅经理(餐厅经理是犹太人,并且曾经救过汉斯)讲一个笑话.
+当时餐厅经理很紧张，一时不知所措，他知道这关乎自己的生命, 接着他讲了下面这个故事.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;有个纳粹军官，在一次战争中左眼失明了。于是他给自己的左眼安装了一个玻璃。 之后他喜欢玩一个游戏，他会让他的犯人猜哪一个眼睛是真的
+哪一个是玻璃，猜对了自然没什么，猜错了就被枪毙。很多人猜的时候都是提醒掉胆，即便如此还是有很多人送了命。&lt;/p&gt;
+
+&lt;p&gt;有一天，他抓到一个犹太人，突然来了兴致，也让他来玩这个游戏。结果这个犹太人很快指出左眼是玻璃。军官很好奇，问他怎么这么快就可以知道
+正确的答案。他说：&amp;rdquo;&lt;strong&gt;因为你的左眼看人的眼光更仁慈&lt;/strong&gt;&amp;ldquo;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>markdown syntax</title>
+      <link>http://micanzhang.github.io/post/2014-11-18-markdown-syntax/</link>
+      <pubDate>Tue, 18 Nov 2014 15:17:22 +0800</pubDate>
+      
+      <guid>http://micanzhang.github.io/post/2014-11-18-markdown-syntax/</guid>
+      <description>
+
+&lt;p&gt;&lt;em&gt;Notes:分享自:&lt;a href=&#34;https://github.com/othree/markdown-syntax-zhtw&#34;&gt;https://github.com/othree/markdown-syntax-zhtw&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;markdown-文件:75b7d9328dcfba614327f6fb40009687&#34;&gt;Markdown 文件&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://markdown.tw/images/208x128.png&#34; alt=&#34;Markdown&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; This is Traditional Chinese Edition Document of
+Markdown Syntax. If you are seeking for English Edition
+Document. Please refer to &lt;a href=&#34;http://daringfireball.net/projects/markdown/syntax&#34;&gt;Markdown: Syntax&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&#34;markdown-syntax:75b7d9328dcfba614327f6fb40009687&#34;&gt;Markdown: Syntax&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#overview&#34;&gt;概述&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#philosophy&#34;&gt;哲學&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#html&#34;&gt;行內 HTML&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#autoescape&#34;&gt;特殊字元自動轉換&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#block&#34;&gt;區塊元素&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#p&#34;&gt;段落和換行&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#header&#34;&gt;標題&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#blockquote&#34;&gt;區塊引言&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#list&#34;&gt;清單&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#precode&#34;&gt;程式碼區塊&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#hr&#34;&gt;分隔線&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#span&#34;&gt;區段元素&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#link&#34;&gt;連結&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#em&#34;&gt;強調&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#code&#34;&gt;程式碼&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#img&#34;&gt;圖片&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#misc&#34;&gt;其它&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#backslash&#34;&gt;跳脫字元&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#autolink&#34;&gt;自動連結&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#acknowledgement&#34;&gt;感謝&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;這份文件是用 Markdown 寫的，你可以&lt;a href=&#34;https://github.com/othree/markdown-syntax-zhtw/blob/master/syntax.md&#34;&gt;看看它的原始檔&lt;/a&gt; 。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;overview&#34;&gt;概述&lt;/h2&gt;
+
+&lt;h3 id=&#34;philosophy&#34;&gt;哲學&lt;/h3&gt;
+
+&lt;p&gt;Markdown 的目標是實現「易讀易寫」。&lt;/p&gt;
+
+&lt;p&gt;不過最需要強調的便是它的可讀性。一份使用 Markdown 格式撰寫的文件應該可以直接以純文字發佈，並且看起來不會像是由許多標籤或是格式指令所構成。Markdown 語法受到一些既有 text-to-HTML 格式的影響，包括 &lt;a href=&#34;http://docutils.sourceforge.net/mirror/setext.html&#34;&gt;Setext&lt;/a&gt;、&lt;a href=&#34;http://www.aaronsw.com/2002/atx/&#34;&gt;atx&lt;/a&gt;、&lt;a href=&#34;http://textism.com/tools/textile/&#34;&gt;Textile&lt;/a&gt;、&lt;a href=&#34;http://docutils.sourceforge.net/rst.html&#34;&gt;reStructuredText&lt;/a&gt;、&lt;a href=&#34;http://www.triptico.com/software/grutatxt.html&#34;&gt;Grutatext&lt;/a&gt; 和 &lt;a href=&#34;http://ettext.taint.org/doc/&#34;&gt;EtText&lt;/a&gt;，然而最大靈感來源其實是純文字的電子郵件格式。&lt;/p&gt;
+
+&lt;p&gt;因此 Markdown 的語法全由標點符號所組成，並經過嚴謹慎選，是為了讓它們看起來就像所要表達的意思。像是在文字兩旁加上星號，看起來就像*強調*。Markdown 的清單看起來，嗯，就是清單。假如你有使用過電子郵件，區塊引言看起來就真的像是引用一段文字。&lt;/p&gt;
+
+&lt;h3 id=&#34;html&#34;&gt;行內 HTML&lt;/h3&gt;
+
+&lt;p&gt;Markdown 的語法有個主要的目的：用來作為一種網路內容的*寫作*用語言。&lt;/p&gt;
+
+&lt;p&gt;Markdown 不是要來取代 HTML，甚至也沒有要和它相似，它的語法種類不多，只和 HTML 的一部分有關係，重點*不是*要創造一種更容易寫作 HTML 文件的語法，我認為 HTML 已經很容易寫了，Markdown 的重點在於，它能讓文件更容易閱讀、編寫。HTML 是一種*發佈*的格式，Markdown 是一種*編寫*的格式，因此，Markdown 的格式語法只涵蓋純文字可以涵蓋的範圍。&lt;/p&gt;
+
+&lt;p&gt;不在 Markdown 涵蓋範圍之外的標籤，都可以直接在文件裡面用 HTML 撰寫。不需要額外標註這是 HTML 或是 Markdown；只要直接加標籤就可以了。&lt;/p&gt;
+
+&lt;p&gt;只有區塊元素──比如 &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;、&lt;code&gt;&amp;lt;table&amp;gt;&lt;/code&gt;、&lt;code&gt;&amp;lt;pre&amp;gt;&lt;/code&gt;、&lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt; 等標籤，必須在前後加上空行，以利與內容區隔。而且這些（元素）的開始與結尾標籤，不可以用 tab 或是空白來縮排。Markdown 的產生器有智慧型判斷，可以避免在區塊標籤前後加上沒有必要的 &lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt; 標籤。&lt;/p&gt;
+
+&lt;p&gt;舉例來說，在 Markdown 文件裡加上一段 HTML 表格：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;This is a regular paragraph.
+
+&amp;lt;table&amp;gt;
+    &amp;lt;tr&amp;gt;
+        &amp;lt;td&amp;gt;Foo&amp;lt;/td&amp;gt;
+    &amp;lt;/tr&amp;gt;
+&amp;lt;/table&amp;gt;
+
+This is another regular paragraph.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;請注意，Markdown 語法在 HTML 區塊標籤中將不會被進行處理。例如，你無法在 HTML 區塊內使用 Markdown 形式的&lt;code&gt;*強調*&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;HTML 的區段標籤如 &lt;code&gt;&amp;lt;span&amp;gt;&lt;/code&gt;、&lt;code&gt;&amp;lt;cite&amp;gt;&lt;/code&gt;、&lt;code&gt;&amp;lt;del&amp;gt;&lt;/code&gt; 則不受限制，可以在 Markdown 的段落、清單或是標題裡任意使用。依照個人習慣，甚至可以不用Markdown 格式，而採用 HTML 標籤來格式化。舉例說明：如果比較喜歡 HTML 的  &lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt; 或 &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; 標籤，可以直接使用這些標籤，而不用 Markdown 提供的連結或是影像標示語法。&lt;/p&gt;
+
+&lt;p&gt;HTML 區段標籤和區塊標籤不同，在區段標籤的範圍內， Markdown 的語法是有效的。&lt;/p&gt;
+
+&lt;h3 id=&#34;autoescape&#34;&gt;特殊字元自動轉換&lt;/h3&gt;
+
+&lt;p&gt;在 HTML 文件中，有兩個字元需要特殊處理： &lt;code&gt;&amp;lt;&lt;/code&gt; 和 &lt;code&gt;&amp;amp;&lt;/code&gt; 。 &lt;code&gt;&amp;lt;&lt;/code&gt; 符號用於起始標籤，&lt;code&gt;&amp;amp;&lt;/code&gt; 符號則用於標記 HTML 實體，如果你只是想要使用這些符號，你必須要使用實體的形式，像是 &lt;code&gt;&amp;amp;lt;&lt;/code&gt; 和 &lt;code&gt;&amp;amp;amp;&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;amp;&lt;/code&gt; 符號其實很容易讓寫作網路文件的人感到困擾，如果你要打「AT&amp;amp;T」 ，你必須要寫成「&lt;code&gt;AT&amp;amp;amp;T&lt;/code&gt;」 ，還得轉換網址內的 &lt;code&gt;&amp;amp;&lt;/code&gt; 符號，如果你要連結到：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;http://images.google.com/images?num=30&amp;amp;q=larry+bird
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;你必須要把網址轉成：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;http://images.google.com/images?num=30&amp;amp;amp;q=larry+bird
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;才能放到連結標籤的 &lt;code&gt;href&lt;/code&gt; 屬性裡。不用說也知道這很容易忘記，這也可能是 HTML 標準檢查所檢查到的錯誤中，數量最多的。&lt;/p&gt;
+
+&lt;p&gt;Markdown 允許你直接使用這些符號，但是你要小心跳脫字元的使用，如果你是在HTML 實體中使用 &lt;code&gt;&amp;amp;&lt;/code&gt; 符號的話，它不會被轉換，而在其它情形下，它則會被轉換成 &lt;code&gt;&amp;amp;amp;&lt;/code&gt;。所以你如果要在文件中插入一個著作權的符號，你可以這樣寫：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;amp;copy;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Markdown 將不會對這段文字做修改，但是如果你這樣寫：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;AT&amp;amp;T
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Markdown 就會將它轉為：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;AT&amp;amp;amp;T
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;類似的狀況也會發生在 &lt;code&gt;&amp;lt;&lt;/code&gt; 符號上，因為 Markdown 支援 &lt;a href=&#34;#html&#34;&gt;行內 HTML&lt;/a&gt; ，如果你是使用 &lt;code&gt;&amp;lt;&lt;/code&gt; 符號作為 HTML 標籤使用，那 Markdown 也不會對它做任何轉換，但是如果你是寫：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;4 &amp;lt; 5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Markdown 將會把它轉換為：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;4 &amp;amp;lt; 5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;不過需要注意的是，code 範圍內，不論是行內還是區塊， &lt;code&gt;&amp;lt;&lt;/code&gt; 和 &lt;code&gt;&amp;amp;&lt;/code&gt; 兩個符號都*一定*會被轉換成 HTML 實體，這項特性讓你可以很容易地用 Markdown 寫 HTML code （和 HTML 相對而言， HTML 語法中，你要把所有的 &lt;code&gt;&amp;lt;&lt;/code&gt; 和 &lt;code&gt;&amp;amp;&lt;/code&gt; 都轉換為 HTML 實體，才能在 HTML 文件裡面寫出 HTML code。）&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;block&#34;&gt;區塊元素&lt;/h2&gt;
+
+&lt;h3 id=&#34;p&#34;&gt;段落和換行&lt;/h3&gt;
+
+&lt;p&gt;一個段落是由一個以上相連接的行句組成，而一個以上的空行則會切分出不同的段落（空行的定義是顯示上看起來像是空行，便會被視為空行。比方說，若某一行只包含空白和 tab，則該行也會被視為空行），一般的段落不需要用空白或斷行縮排。&lt;/p&gt;
+
+&lt;p&gt;「一個以上相連接的行句組成」這句話其實暗示了 Markdown 允許段落內的強迫斷行，這個特性和其他大部分的 text-to-HTML 格式不一樣（包括 MovableType 的「Convert Line Breaks」選項），其它的格式會把每個斷行都轉成 &lt;code&gt;&amp;lt;br /&amp;gt;&lt;/code&gt; 標籤。&lt;/p&gt;
+
+&lt;p&gt;如果你*真的*想要插入 &lt;code&gt;&amp;lt;br /&amp;gt;&lt;/code&gt; 標籤的話，在行尾加上兩個以上的空白，然後按 enter。&lt;/p&gt;
+
+&lt;p&gt;是的，這確實需要花比較多功夫來插入 &lt;code&gt;&amp;lt;br /&amp;gt;&lt;/code&gt; ，但是「每個換行都轉換為 &lt;code&gt;&amp;lt;br /&amp;gt;&lt;/code&gt;」的方法在 Markdown 中並不適合， Markdown 中 email 式的 &lt;a href=&#34;#blockquote&#34;&gt;區塊引言&lt;/a&gt; 和多段落的 &lt;a href=&#34;#list&#34;&gt;清單&lt;/a&gt; 在使用換行來排版的時候，不但更好用，還更好閱讀。&lt;/p&gt;
+
+&lt;h3 id=&#34;header&#34;&gt;標題&lt;/h3&gt;
+
+&lt;p&gt;Markdown 支援兩種標題的語法，&lt;a href=&#34;http://docutils.sourceforge.net/mirror/setext.html&#34;&gt;Setext&lt;/a&gt; 和 &lt;a href=&#34;http://www.aaronsw.com/2002/atx/&#34;&gt;atx&lt;/a&gt; 形式。&lt;/p&gt;
+
+&lt;p&gt;Setext 形式是用底線的形式，利用 &lt;code&gt;=&lt;/code&gt; （最高階標題）和 &lt;code&gt;-&lt;/code&gt; （第二階標題），例如：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;This is an H1
+=============
+
+This is an H2
+-------------
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;任何數量的 &lt;code&gt;=&lt;/code&gt; 和 &lt;code&gt;-&lt;/code&gt; 都可以有效果。&lt;/p&gt;
+
+&lt;p&gt;Atx 形式則是在行首插入 1 到 6 個 &lt;code&gt;#&lt;/code&gt; ，對應到標題 1 到 6 階，例如：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# This is an H1
+
+## This is an H2
+
+###### This is an H6
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;你可以選擇性地「關閉」atx 樣式的標題，這純粹只是美觀用的，若是覺得這樣看起來比較舒適，你就可以在行尾加上 &lt;code&gt;#&lt;/code&gt;，而行尾的 &lt;code&gt;#&lt;/code&gt; 數量也不用和開頭一樣（行首的井字數量決定標題的階數）：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# This is an H1 #
+
+## This is an H2 ##
+
+### This is an H3 ######
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;blockquote&#34;&gt;Blockquotes&lt;/h3&gt;
+
+&lt;p&gt;Markdown 使用 email 形式的區塊引言，如果你很熟悉如何在 email 信件中引言，你就知道怎麼在 Markdown 文件中建立一個區塊引言，那會看起來像是你強迫斷行，然後在每行的最前面加上 &lt;code&gt;&amp;gt;&lt;/code&gt; ：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+&amp;gt; consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+&amp;gt; Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+&amp;gt;
+&amp;gt; Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+&amp;gt; id sem consectetuer libero luctus adipiscing.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Markdown 也允許你只在整個段落的第一行最前面加上 &lt;code&gt;&amp;gt;&lt;/code&gt; ：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+
+&amp;gt; Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;區塊引言可以有階層（例如：引言內的引言），只要根據層數加上不同數量的 &lt;code&gt;&amp;gt;&lt;/code&gt; ：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; This is the first level of quoting.
+&amp;gt;
+&amp;gt; &amp;gt; This is nested blockquote.
+&amp;gt;
+&amp;gt; Back to the first level.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;引言的區塊內也可以使用其他的 Markdown 語法，包括標題、清單、程式碼區塊等：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; ## This is a header.
+&amp;gt;
+&amp;gt; 1.   This is the first list item.
+&amp;gt; 2.   This is the second list item.
+&amp;gt;
+&amp;gt; Here&#39;s some example code:
+&amp;gt;
+&amp;gt;     return shell_exec(&amp;quot;echo $input | $markdown_script&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;任何標準的文字編輯器都能簡單地建立 email 樣式的引言，例如 BBEdit ，你可以選取文字後然後從選單中選擇*增加引言階層*。&lt;/p&gt;
+
+&lt;h3 id=&#34;list&#34;&gt;清單&lt;/h3&gt;
+
+&lt;p&gt;Markdown 支援有序清單和無序清單。&lt;/p&gt;
+
+&lt;p&gt;無序清單使用星號、加號或是減號作為清單標記：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;*   Red
+*   Green
+*   Blue
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;等同於：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;+   Red
++   Green
++   Blue
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;也等同於：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;-   Red
+-   Green
+-   Blue
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;有序清單則使用數字接著一個英文句點：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;1.  Bird
+2.  McHale
+3.  Parish
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;很重要的一點是，你在清單標記上使用的數字並不會影響輸出的 HTML 結果，上面的清單所產生的 HTML 標記為：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;ol&amp;gt;
+&amp;lt;li&amp;gt;Bird&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;McHale&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;Parish&amp;lt;/li&amp;gt;
+&amp;lt;/ol&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果你的清單標記寫成：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;1.  Bird
+1.  McHale
+1.  Parish
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;或甚至是：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;3. Bird
+1. McHale
+8. Parish
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;你都會得到完全相同的 HTML 輸出。重點在於，你可以讓 Markdown 文件的清單數字和輸出的結果相同，或是你懶一點，你可以完全不用在意數字的正確性。&lt;/p&gt;
+
+&lt;p&gt;如果你使用懶惰的寫法，建議第一個項目最好還是從 1. 開始，因為 Markdown 未來可能會支援有序清單的 start 屬性。&lt;/p&gt;
+
+&lt;p&gt;清單項目標記通常是放在最左邊，但是其實也可以縮排，最多三個空白，項目標記後面則一定要接著至少一個空白或 tab。&lt;/p&gt;
+
+&lt;p&gt;要讓清單看起來更漂亮，你可以把內容用固定的縮排整理好：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+    Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+    viverra nec, fringilla in, laoreet vitae, risus.
+*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+    Suspendisse id sem consectetuer libero luctus adipiscing.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;但是如果你很懶，那也不一定需要：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+viverra nec, fringilla in, laoreet vitae, risus.
+*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+Suspendisse id sem consectetuer libero luctus adipiscing.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果清單項目間用空行分開， Markdown 會把項目的內容在輸出時用 &lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt;
+標籤包起來，舉例來說：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;*   Bird
+*   Magic
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;會被轉換為：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;ul&amp;gt;
+&amp;lt;li&amp;gt;Bird&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;Magic&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;但是這個：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;*   Bird
+
+*   Magic
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;會被轉換為：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;ul&amp;gt;
+&amp;lt;li&amp;gt;&amp;lt;p&amp;gt;Bird&amp;lt;/p&amp;gt;&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;&amp;lt;p&amp;gt;Magic&amp;lt;/p&amp;gt;&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;清單項目可以包含多個段落，每個項目下的段落都必須縮排 4 個空白或是一個 tab ：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;1.  This is a list item with two paragraphs. Lorem ipsum dolor
+    sit amet, consectetuer adipiscing elit. Aliquam hendrerit
+    mi posuere lectus.
+
+    Vestibulum enim wisi, viverra nec, fringilla in, laoreet
+    vitae, risus. Donec sit amet nisl. Aliquam semper ipsum
+    sit amet velit.
+
+2.  Suspendisse id sem consectetuer libero luctus adipiscing.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果你每行都有縮排，看起來會看好很多，當然，再次地，如果你很懶惰，Markdown 也允許：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;*   This is a list item with two paragraphs.
+
+    This is the second paragraph in the list item. You&#39;re
+only required to indent the first line. Lorem ipsum dolor
+sit amet, consectetuer adipiscing elit.
+
+*   Another item in the same list.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果要在清單項目內放進引言，那 &lt;code&gt;&amp;gt;&lt;/code&gt; 就需要縮排：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;*   A list item with a blockquote:
+
+    &amp;gt; This is a blockquote
+    &amp;gt; inside a list item.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果要放程式碼區塊的話，該區塊就需要縮排*兩次*，也就是 8 個空白或是兩個 tab：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;*   A list item with a code block:
+
+        &amp;lt;code goes here&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;當然，項目清單很可能會不小心產生，像是下面這樣的寫法：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;1986. What a great season.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;換句話說，也就是在行首出現*數字-句點-空白*，要避免這樣的狀況，你可以在句點前面加上反斜線。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;1986\. What a great season.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;precode&#34;&gt;程式碼區塊&lt;/h3&gt;
+
+&lt;p&gt;和程式相關的寫作或是標籤語言原始碼通常會有已經排版好的程式碼區塊，通常這些區塊我們並不希望它以一般段落文件的方式去排版，而是照原來的樣子顯示，Markdown 會用 &lt;code&gt;&amp;lt;pre&amp;gt;&lt;/code&gt; 和 &lt;code&gt;&amp;lt;code&amp;gt;&lt;/code&gt; 標籤來把程式碼區塊包起來。&lt;/p&gt;
+
+&lt;p&gt;要在 Markdown 中建立程式碼區塊很簡單，只要簡單地縮排 4 個空白或是 1 個 tab 就可以，例如，下面的輸入：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;This is a normal paragraph:
+
+    This is a code block.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Markdown 會轉換成：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;This is a normal paragraph:&amp;lt;/p&amp;gt;
+
+&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;This is a code block.
+&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;這個每行一階的縮排（4 個空白或是 1 個 tab），都會被移除，例如：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Here is an example of AppleScript:
+
+    tell application &amp;quot;Foo&amp;quot;
+        beep
+    end tell
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;會被轉換為：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;Here is an example of AppleScript:&amp;lt;/p&amp;gt;
+
+&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;tell application &amp;quot;Foo&amp;quot;
+    beep
+end tell
+&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;一個程式碼區塊會一直持續到沒有縮排的那一行（或是文件結尾）。&lt;/p&gt;
+
+&lt;p&gt;在程式碼區塊裡面， &lt;code&gt;&amp;amp;&lt;/code&gt; 、 &lt;code&gt;&amp;lt;&lt;/code&gt; 和 &lt;code&gt;&amp;gt;&lt;/code&gt; 會自動轉成 HTML 實體，這樣的方式讓你非常容易使用 Markdown 插入範例用的 HTML 原始碼，只需要複製貼上，再加上縮排就可以了，剩下的 Markdown 都會幫你處理，例如：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    &amp;lt;div class=&amp;quot;footer&amp;quot;&amp;gt;
+        &amp;amp;copy; 2004 Foo Corporation
+    &amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;會被轉換為：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;&amp;amp;lt;div class=&amp;quot;footer&amp;quot;&amp;amp;gt;
+    &amp;amp;amp;copy; 2004 Foo Corporation
+&amp;amp;lt;/div&amp;amp;gt;
+&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;程式碼區塊中，一般的 Markdown 語法不會被轉換，像是星號便只是星號，這表示你可以很容易地以 Markdown 語法撰寫 Markdown 語法相關的文件。&lt;/p&gt;
+
+&lt;h3 id=&#34;hr&#34;&gt;分隔線&lt;/h3&gt;
+
+&lt;p&gt;你可以在一行中用三個或以上的星號、減號、底線來建立一個分隔線，行內不能有其他東西。你也可以在星號中間插入空白。下面每種寫法都可以建立分隔線：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;* * *
+
+***
+
+*****
+
+- - -
+
+---------------------------------------
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;span&#34;&gt;區段元素&lt;/h2&gt;
+
+&lt;h3 id=&#34;link&#34;&gt;連結&lt;/h3&gt;
+
+&lt;p&gt;Markdown 支援兩種形式的連結語法： *行內*和*參考*兩種形式。&lt;/p&gt;
+
+&lt;p&gt;不管是哪一種，連結的文字都是用 [方括號] 來標記。&lt;/p&gt;
+
+&lt;p&gt;要建立一個行內形式的連結，只要在方塊括號後面馬上接著括號並插入網址連結即可，如果你還想要加上連結的 title 文字，只要在網址後面，用雙引號把 title 文字包起來即可，例如：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;This is [an example](http://example.com/ &amp;quot;Title&amp;quot;) inline link.
+
+[This link](http://example.net/) has no title attribute.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;會產生：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;This is &amp;lt;a href=&amp;quot;http://example.com/&amp;quot; title=&amp;quot;Title&amp;quot;&amp;gt;
+an example&amp;lt;/a&amp;gt; inline link.&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;&amp;lt;a href=&amp;quot;http://example.net/&amp;quot;&amp;gt;This link&amp;lt;/a&amp;gt; has no
+title attribute.&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果你是要連結到同樣主機的資源，你可以使用相對路徑：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;See my [About](/about/) page for details.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;參考形式的連結使用另外一個方括號接在連結文字的括號後面，而在第二個方括號裡面要填入用以辨識連結的標籤：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;This is [an example][id] reference-style link.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;你也可以選擇性地在兩個方括號中間加上空白：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;This is [an example] [id] reference-style link.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;接著，在文件的任意處，你可以把這個標籤的連結內容定義出來：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[id]: http://example.com/  &amp;quot;Optional Title Here&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;連結定義的形式為：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;方括號，裡面輸入連結的辨識用標籤&lt;/li&gt;
+&lt;li&gt;接著一個冒號&lt;/li&gt;
+&lt;li&gt;接著一個以上的空白或 tab&lt;/li&gt;
+&lt;li&gt;接著連結的網址&lt;/li&gt;
+&lt;li&gt;選擇性地接著 title 內容，可以用單引號、雙引號或是括弧包著&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;下面這三種連結的定義都是相同：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[foo]: http://example.com/  &amp;quot;Optional Title Here&amp;quot;
+[foo]: http://example.com/  &#39;Optional Title Here&#39;
+[foo]: http://example.com/  (Optional Title Here)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;請注意：&lt;/strong&gt;有一個已知的問題是 Markdown.pl 1.0.1 會忽略單引號包起來的連結 title。&lt;/p&gt;
+
+&lt;p&gt;連結網址也可以用方括號包起來：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[id]: &amp;lt;http://example.com/&amp;gt;  &amp;quot;Optional Title Here&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;你也可以把 title 屬性放到下一行，也可以加一些縮排，網址太長的話，這樣會比較好看：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[id]: http://example.com/longish/path/to/resource/here
+    &amp;quot;Optional Title Here&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;網址定義只有在產生連結的時候用到，並不會直接出現在文件之中。&lt;/p&gt;
+
+&lt;p&gt;連結辨識標籤可以有字母、數字、空白和標點符號，但是並*不*區分大小寫，因此下面兩個連結是一樣的：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[link text][a]
+[link text][A]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;*預設的連結標籤*功能讓你可以省略指定連結標籤，這種情形下，連結標籤和連結文字會視為相同，要用預設連結標籤只要在連結文字後面加上一個空的方括號，如果你要讓 &amp;ldquo;Google&amp;rdquo; 連結到 google.com，你可以簡化成：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[Google][]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然後定義連結內容：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[Google]: http://google.com/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;由於連結文字可能包含空白，所以這種簡化的標籤內也可以包含多個文字：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Visit [Daring Fireball][] for more information.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然後接著定義連結：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[Daring Fireball]: http://daringfireball.net/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;連結的定義可以放在文件中的任何一個地方，我比較偏好直接放在連結出現段落的後面，你也可以把它放在文件最後面，就像是註解一樣。&lt;/p&gt;
+
+&lt;p&gt;下面是一個參考式連結的範例：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;I get 10 times more traffic from [Google] [1] than from
+[Yahoo] [2] or [MSN] [3].
+
+  [1]: http://google.com/        &amp;quot;Google&amp;quot;
+  [2]: http://search.yahoo.com/  &amp;quot;Yahoo Search&amp;quot;
+  [3]: http://search.msn.com/    &amp;quot;MSN Search&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果改成用連結名稱的方式寫：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;I get 10 times more traffic from [Google][] than from
+[Yahoo][] or [MSN][].
+
+  [google]: http://google.com/        &amp;quot;Google&amp;quot;
+  [yahoo]:  http://search.yahoo.com/  &amp;quot;Yahoo Search&amp;quot;
+  [msn]:    http://search.msn.com/    &amp;quot;MSN Search&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面兩種寫法都會產生下面的 HTML。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;I get 10 times more traffic from &amp;lt;a href=&amp;quot;http://google.com/&amp;quot;
+title=&amp;quot;Google&amp;quot;&amp;gt;Google&amp;lt;/a&amp;gt; than from
+&amp;lt;a href=&amp;quot;http://search.yahoo.com/&amp;quot; title=&amp;quot;Yahoo Search&amp;quot;&amp;gt;Yahoo&amp;lt;/a&amp;gt;
+or &amp;lt;a href=&amp;quot;http://search.msn.com/&amp;quot; title=&amp;quot;MSN Search&amp;quot;&amp;gt;MSN&amp;lt;/a&amp;gt;.&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;下面是用行內形式寫的同樣一段內容的 Markdown 文件，提供作為比較之用：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;I get 10 times more traffic from [Google](http://google.com/ &amp;quot;Google&amp;quot;)
+than from [Yahoo](http://search.yahoo.com/ &amp;quot;Yahoo Search&amp;quot;) or
+[MSN](http://search.msn.com/ &amp;quot;MSN Search&amp;quot;).
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;參考式的連結其實重點不在於它比較好寫，而是它比較好讀，比較一下上面的範例，使用參考式的文章本身只有 81 個字元，但是用行內形式的連結卻會增加到 176 個字元，如果是用純 HTML 格式來寫，會有 234 個字元，在 HTML 格式中，標籤比文字還要多。&lt;/p&gt;
+
+&lt;p&gt;使用 Markdown 的參考式連結，可以讓文件更像是瀏覽器最後產生的結果，讓你可以把一些標記相關的資訊移到段落文字之外，你就可以增加連結而不讓文章的閱讀感覺被打斷。&lt;/p&gt;
+
+&lt;h3 id=&#34;em&#34;&gt;強調&lt;/h3&gt;
+
+&lt;p&gt;Markdown 使用星號（&lt;code&gt;*&lt;/code&gt;）和底線（&lt;code&gt;_&lt;/code&gt;）作為標記強調字詞的符號，被 &lt;code&gt;*&lt;/code&gt; 或 &lt;code&gt;_&lt;/code&gt; 包圍的字詞會被轉成用 &lt;code&gt;&amp;lt;em&amp;gt;&lt;/code&gt; 標籤包圍，用兩個 &lt;code&gt;*&lt;/code&gt; 或 &lt;code&gt;_&lt;/code&gt; 包起來的話，則會被轉成 &lt;code&gt;&amp;lt;strong&amp;gt;&lt;/code&gt;，例如：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;*single asterisks*
+
+_single underscores_
+
+**double asterisks**
+
+__double underscores__
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;會轉成：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;em&amp;gt;single asterisks&amp;lt;/em&amp;gt;
+
+&amp;lt;em&amp;gt;single underscores&amp;lt;/em&amp;gt;
+
+&amp;lt;strong&amp;gt;double asterisks&amp;lt;/strong&amp;gt;
+
+&amp;lt;strong&amp;gt;double underscores&amp;lt;/strong&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;你可以隨便用你喜歡的樣式，唯一的限制是，你用什麼符號開啟標籤，就要用什麼符號結束。&lt;/p&gt;
+
+&lt;p&gt;強調也可以直接插在文字中間：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;un*frigging*believable
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;但是如果你的 &lt;code&gt;*&lt;/code&gt; 和 &lt;code&gt;_&lt;/code&gt; 兩邊都有空白的話，它們就只會被當成普通的符號。&lt;/p&gt;
+
+&lt;p&gt;如果要在文字前後直接插入普通的星號或底線，你可以用反斜線：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\*this text is surrounded by literal asterisks\*
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;code&#34;&gt;程式碼&lt;/h3&gt;
+
+&lt;p&gt;如果要標記一小段行內程式碼，你可以用反引號把它包起來（&lt;code&gt;`&lt;/code&gt;），例如：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Use the `printf()` function.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;會產生：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;Use the &amp;lt;code&amp;gt;printf()&amp;lt;/code&amp;gt; function.&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果要在程式碼區段內插入反引號，你可以用多個反引號來開啟和結束程式碼區段：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;``There is a literal backtick (`) here.``
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;這段語法會產生：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;&amp;lt;code&amp;gt;There is a literal backtick (`) here.&amp;lt;/code&amp;gt;&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;程式碼區段的起始和結束端都可以放入一個空白，起始端後面一個，結束端前面一個，這樣你就可以在區段的一開始就插入反引號：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;A single backtick in a code span: `` ` ``
+
+A backtick-delimited string in a code span: `` `foo` ``
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;會產生：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;A single backtick in a code span: &amp;lt;code&amp;gt;`&amp;lt;/code&amp;gt;&amp;lt;/p&amp;gt;
+
+&amp;lt;p&amp;gt;A backtick-delimited string in a code span: &amp;lt;code&amp;gt;`foo`&amp;lt;/code&amp;gt;&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在程式碼區段內，&lt;code&gt;&amp;amp;&lt;/code&gt; 和方括號都會被轉成 HTML 實體，這樣會比較容易插入 HTML 原始碼，Markdown 會把下面這段：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Please don&#39;t use any `&amp;lt;blink&amp;gt;` tags.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;轉為：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;Please don&#39;t use any &amp;lt;code&amp;gt;&amp;amp;lt;blink&amp;amp;gt;&amp;lt;/code&amp;gt; tags.&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;你也可以這樣寫：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;`&amp;amp;#8212;` is the decimal-encoded equivalent of `&amp;amp;mdash;`.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以產生：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;&amp;lt;code&amp;gt;&amp;amp;amp;#8212;&amp;lt;/code&amp;gt; is the decimal-encoded
+equivalent of &amp;lt;code&amp;gt;&amp;amp;amp;mdash;&amp;lt;/code&amp;gt;.&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;img&#34;&gt;圖片&lt;/h3&gt;
+
+&lt;p&gt;很明顯地，要在純文字應用中設計一個 「自然」的語法來插入圖片是有一定難度的。&lt;/p&gt;
+
+&lt;p&gt;Markdown 使用一種和連結很相似的語法來標記圖片，同樣也允許兩種樣式： *行內*和*參考*。&lt;/p&gt;
+
+&lt;p&gt;行內圖片的語法看起來像是：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;![Alt text](/path/to/img.jpg)
+
+![Alt text](/path/to/img.jpg &amp;quot;Optional title&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;詳細敘述如下：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;一個驚嘆號 &lt;code&gt;!&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;接著一個方括號，裡面放上圖片的替代文字&lt;/li&gt;
+&lt;li&gt;接著一個普通括號，裡面放上圖片的網址，最後還可以用引號包住並加上
+選擇性的 &amp;lsquo;title&amp;rsquo; 文字。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;參考式的圖片語法則長得像這樣：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;![Alt text][id]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;「id」是圖片參考的名稱，圖片參考的定義方式則和連結參考一樣：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[id]: url/to/image  &amp;quot;Optional title attribute&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;到目前為止， Markdown 還沒有辦法指定圖片的寬高，如果你需要的話，你可以使用普通的 &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; 標籤。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;misc&#34;&gt;其它&lt;/h2&gt;
+
+&lt;h3 id=&#34;autolink&#34;&gt;自動連結&lt;/h3&gt;
+
+&lt;p&gt;Markdown 支援比較簡短的自動連結形式來處理網址和電子郵件信箱，只要是用方括號包起來， Markdown 就會自動把它轉成連結，連結的文字就和連結位置一樣，例如：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;http://example.com/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Markdown 會轉為：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;http://example.com/&amp;quot;&amp;gt;http://example.com/&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;自動的郵件連結也很類似，只是 Markdown 會先做一個編碼轉換的過程，把文字字元轉成 16 進位碼的 HTML 實體，這樣的格式可以混淆一些不好的信箱地址收集機器人，例如：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;address@example.com&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Markdown 會轉成：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;&amp;amp;#x6D;&amp;amp;#x61;i&amp;amp;#x6C;&amp;amp;#x74;&amp;amp;#x6F;:&amp;amp;#x61;&amp;amp;#x64;&amp;amp;#x64;&amp;amp;#x72;&amp;amp;#x65;
+&amp;amp;#115;&amp;amp;#115;&amp;amp;#64;&amp;amp;#101;&amp;amp;#120;&amp;amp;#x61;&amp;amp;#109;&amp;amp;#x70;&amp;amp;#x6C;e&amp;amp;#x2E;&amp;amp;#99;&amp;amp;#111;
+&amp;amp;#109;&amp;quot;&amp;gt;&amp;amp;#x61;&amp;amp;#x64;&amp;amp;#x64;&amp;amp;#x72;&amp;amp;#x65;&amp;amp;#115;&amp;amp;#115;&amp;amp;#64;&amp;amp;#101;&amp;amp;#120;&amp;amp;#x61;
+&amp;amp;#109;&amp;amp;#x70;&amp;amp;#x6C;e&amp;amp;#x2E;&amp;amp;#99;&amp;amp;#111;&amp;amp;#109;&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在瀏覽器裡面，這段字串會變成一個可以點擊的「address@example.com」連結。&lt;/p&gt;
+
+&lt;p&gt;（這種作法雖然可以混淆不少的機器人，但並無法全部擋下來，不過這樣也比什麼都不做好些。無論如何，公開你的信箱終究會引來廣告信件的。）&lt;/p&gt;
+
+&lt;h3 id=&#34;backslash&#34;&gt;跳脫字元&lt;/h3&gt;
+
+&lt;p&gt;Markdown 可以利用反斜線來插入一些在語法中有其它意義的符號，例如：如果你想要用星號加在文字旁邊的方式來做出強調效果（但不用 &lt;code&gt;&amp;lt;em&amp;gt;&lt;/code&gt; 標籤），你可以在星號的前面加上反斜線：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\*literal asterisks\*
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Markdown 支援在下面這些符號前面加上反斜線來幫助插入普通的符號：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\   反斜線
+`   反引號
+*   星號
+_   底線
+{}  大括號
+[]  方括號
+()  括號
+#   井字號
++   加號
+-   減號
+.   英文句點
+!   驚嘆號
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;acknowledgement&#34;&gt;感謝&lt;/h2&gt;
+
+&lt;p&gt;感謝 &lt;a href=&#34;https://twitter.com/#!/leafy7382&#34;&gt;leafy7382&lt;/a&gt; 協助翻譯，&lt;a href=&#34;http://iamhlb.com/&#34;&gt;hlb&lt;/a&gt;、&lt;a href=&#34;http://twitter.com/randylien&#34;&gt;Randylien&lt;/a&gt; 幫忙潤稿，&lt;a href=&#34;https://twitter.com/#!/ethantw&#34;&gt;ethantw&lt;/a&gt; 的&lt;a href=&#34;http://ethantw.net/projects/han/&#34;&gt;漢字標準格式・CSS Reset&lt;/a&gt;， &lt;a href=&#34;http://kidwm.net/&#34;&gt;WM&lt;/a&gt; 回報文字錯誤。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>phabricator and arcanist</title>
+      <link>http://micanzhang.github.io/post/2014-11-18-phabricator-and-arcanist/</link>
+      <pubDate>Tue, 18 Nov 2014 15:17:22 +0800</pubDate>
+      
+      <guid>http://micanzhang.github.io/post/2014-11-18-phabricator-and-arcanist/</guid>
+      <description>
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://phabricator.org&#34;&gt;phabricator&lt;/a&gt; an open source, software engineering platform&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Phabricator is a collection of open source web applications that help software companies build better software.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;主要功能介紹:3100adbb31238124bbe90ebd379d0b62&#34;&gt;主要功能介紹:&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;reviewing and auditing code;&lt;/li&gt;
+&lt;li&gt;hosting Git/Hg/SVN repositories;&lt;/li&gt;
+&lt;li&gt;browsing repositories;&lt;/li&gt;
+&lt;li&gt;tracking bugs or &amp;ldquo;features&amp;rdquo;;&lt;/li&gt;
+&lt;li&gt;hiding stuff from coworkers;&lt;/li&gt;
+&lt;li&gt;and also some other things,like meme generators.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;安裝:3100adbb31238124bbe90ebd379d0b62&#34;&gt;安裝&lt;/h2&gt;
+
+&lt;p&gt;這邊主要討論的是arc的安裝，phabricator的安裝請訪問&lt;a href=&#34;https://secure.phabricator.com/book/phabricator/article/installation_guide/&#34;&gt;官方安裝說明&lt;/a&gt;,同時建議大家可以參考&lt;a href=&#34;https://secure.phabricator.com/book/phabricator/article/arcanist_quick_start/&#34;&gt;arc快速入門&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;首先，安裝依賴:
++ 安裝&lt;a href=&#34;http://www.git-scm.com&#34;&gt;git&lt;/a&gt;.
++ 安裝&lt;a href=&#34;http://php.net/downloads.php&#34;&gt;PHP&lt;/a&gt;, 打開curl擴展.&lt;/p&gt;
+
+&lt;p&gt;安裝arcanist:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ mkdir install_dir/
+$ cd install_dir/
+install_dir/ $ git clone https://github.com/phacility/libphutil.git
+install_dir/ $ git clone https://github.com/phacility/arcanist.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;添加arc到系統PATH環境變量:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//for linux and MAC OSX:
+$ export PATH=&amp;quot;$PATH:/somewhere/arcanist/bin/&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;配置默認編輯器:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ arc set-config editor &amp;quot;\&amp;quot;C:\path\to\some\editor.exe\&amp;quot;&amp;quot;
+
+//Notepad++
+$ arc set-config editor &amp;quot;\&amp;quot;C:\Program Files (x86)\Notepad++\notepad++.exe\&amp;quot; -multiInst -nosession&amp;quot;
+
+//vim
+$ arc set-config editor &amp;quot;\&amp;quot;C:\Program Files (x86)\Git\share\vim\vim73\vim.exe\&amp;quot;&amp;quot;
+
+//GitPad
+$ arc set-config editor &amp;quot;\&amp;quot;C:\Users\yourusername\AppData\Roaming\GitPad\GitPad.exe\&amp;quot;&amp;quot;
+
+//Sublime Text
+$ arc set-config editor &amp;quot;\&amp;quot;C:\Program Files\Sublime Text 2\sublime_text.exe\&amp;quot; -w -n&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;配置和簡單使用:3100adbb31238124bbe90ebd379d0b62&#34;&gt;配置和簡單使用&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://secure.phabricator.com/book/phabricator/article/arcanist_new_project/&#34;&gt;官方参考文档&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;登录&lt;a href=&#34;http://pha&#34;&gt;phabricator&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;添加SSH public key&lt;/li&gt;
+&lt;li&gt;为工程项目添加arc配置文件&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;安裝授權證書：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ arc install-certificate
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;.arcconfig&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    &amp;quot;phabricator.uri&amp;quot;: &amp;quot;http://pha&amp;quot;, //pha仓库地址
+    &amp;quot;repository.callsign&amp;quot;: &amp;quot;WEBMAIN&amp;quot;, //项目唯一标识(全大写)
+    &amp;quot;project.name&amp;quot;: &amp;quot;WebClient&amp;quot;,  //项目名称(可选)
+    &amp;quot;unit.engine&amp;quot;: &amp;quot;PHPUnitTestEngine&amp;quot;, //测试引擎
+    &amp;quot;phpunit_config&amp;quot;: &amp;quot;phpunit.xml&amp;quot;, //phpunit测试配置文件
+    &amp;quot;load&amp;quot;: [
+        &amp;quot;libcustom&amp;quot;  //arc第三方库，这边是测试引擎所在的库
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;.arclint&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    &amp;quot;exclude&amp;quot;: [
+        &amp;quot;(^externals/)&amp;quot;,
+        &amp;quot;(\\.lint-test$)&amp;quot;
+    ],
+    &amp;quot;linters&amp;quot;: {
+        &amp;quot;chmod&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;chmod&amp;quot;
+        },
+        &amp;quot;filename&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;filename&amp;quot;
+        },
+        &amp;quot;generated&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;generated&amp;quot;
+        },
+        &amp;quot;json&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;json&amp;quot;,
+            &amp;quot;include&amp;quot;: [
+                &amp;quot;(^\\.arcconfig$)&amp;quot;,
+                &amp;quot;(^\\.arclint$)&amp;quot;,
+                &amp;quot;(\\.json$)&amp;quot;
+            ]
+        },
+        &amp;quot;merge-conflict&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;merge-conflict&amp;quot;
+        },
+        &amp;quot;nolint&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;nolint&amp;quot;
+        },
+        &amp;quot;phutil-library&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;phutil-library&amp;quot;,
+            &amp;quot;include&amp;quot;: &amp;quot;(\\.php$)&amp;quot;
+        },
+        &amp;quot;phutil-xhpast&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;phutil-xhpast&amp;quot;,
+            &amp;quot;include&amp;quot;: &amp;quot;(\\.php$)&amp;quot;
+        },
+        &amp;quot;spelling&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;spelling&amp;quot;,
+            &amp;quot;exclude&amp;quot;: &amp;quot;(resources/spelling/.*\\.json$)&amp;quot;
+        },
+        &amp;quot;text&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;
+        },
+        &amp;quot;xhpast&amp;quot;: {
+            &amp;quot;type&amp;quot;: &amp;quot;xhpast&amp;quot;,
+            &amp;quot;include&amp;quot;: &amp;quot;(\\.php$)&amp;quot;,
+            &amp;quot;severity&amp;quot;: {
+                &amp;quot;16&amp;quot;: &amp;quot;advice&amp;quot;,
+                &amp;quot;34&amp;quot;: &amp;quot;error&amp;quot;
+            },
+            &amp;quot;xhpast.php-version&amp;quot;: &amp;quot;5.2.3&amp;quot;,
+            &amp;quot;xhpast.php-version.windows&amp;quot;: &amp;quot;5.3.0&amp;quot;
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: .arcconfig是必須的，.arclint則不是.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;arc命令:3100adbb31238124bbe90ebd379d0b62&#34;&gt;arc命令&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;$ arc help //帮助命令
+$ arc version //查看版本
+$ arc feature Start working on sth
+$ arc cover //who should review my change 
+$ arc patch //apply someone&#39;s revision
+$ arc diff //检查代码修改，并提交pha
+$ arc land //push commit
+$ arc unit //run testcase
+$ arc liberate
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>composer tutorial</title>
+      <link>http://micanzhang.github.io/post/2014-11-17-composer/</link>
+      <pubDate>Mon, 17 Nov 2014 15:17:22 +0800</pubDate>
+      
+      <guid>http://micanzhang.github.io/post/2014-11-17-composer/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://getcomposer.org&#34;&gt;composer&lt;/a&gt;是php的包管理工具,可以方便的管理项目中的各种依赖关系，自动生成加载类.&lt;/p&gt;
+
+&lt;h2 id=&#34;dependences:aeb8321489fc895047399eade8c93310&#34;&gt;Dependences&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;composer&lt;/li&gt;
+&lt;li&gt;php &amp;gt;= 5.4&lt;/li&gt;
+&lt;li&gt;php Mcrypt extension&lt;/li&gt;
+&lt;li&gt;git&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;get-start:aeb8321489fc895047399eade8c93310&#34;&gt;Get Start&lt;/h2&gt;
+
+&lt;p&gt;本教程基于&lt;a href=&#34;http://laravel.com&#34;&gt;laravel&lt;/a&gt;框架，更多关于laravel框架的说明，请访问前面的链接.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$composer create-project laravel/laravel tutorial //创建工程项目
+
+$composer install 　//安装工程依赖
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;保证&lt;strong&gt;tutorial/app/storage&lt;/strong&gt;有写权限&lt;/p&gt;
+
+&lt;p&gt;绑定host后你可以看到一个很漂亮的laravel的介绍页面.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

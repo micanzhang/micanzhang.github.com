@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mysql on micanzhang</title>
+    <link>http://micanzhang.github.io/tags/mysql/</link>
+    <description>Recent content in Mysql on micanzhang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 13 Oct 2015 11:33:41 +0800</lastBuildDate>
+    <atom:link href="http://micanzhang.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>mysql alter table alter change modify column</title>
+      <link>http://micanzhang.github.io/post/mysql-alter-table-alter-change-modify-column/</link>
+      <pubDate>Tue, 13 Oct 2015 11:33:41 +0800</pubDate>
+      
+      <guid>http://micanzhang.github.io/post/mysql-alter-table-alter-change-modify-column/</guid>
+      <description>
+
+&lt;h1 id=&#34;mysql-alter-table-alter-vs-change-vs-modify-column:9a0cf10a1efc74bebebd289c50b1ada1&#34;&gt;MySQL ALTER TABLE: ALTER vs CHANGE vs MODIFY COLUMN&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;引用自&lt;a href=&#34;http://hoelz.ro/ref/mysql-alter-table-alter-change-modify-column&#34;&gt;http://hoelz.ro/ref/mysql-alter-table-alter-change-modify-column&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Whenever I have to change a column in MySQL (which isn&amp;rsquo;t that often), I always forget the difference between ALTER COLUMN, CHANGE COLUMN, and MODIFY COLUMN. Here&amp;rsquo;s a handy reference.&lt;/p&gt;
+
+&lt;p&gt;##ALTER COLUMN&lt;/p&gt;
+
+&lt;p&gt;Used to set or remove the default value for a column. Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;ALTER TABLE MyTable ALTER COLUMN foo SET DEFAULT &#39;bar&#39;;
+ALTER TABLE MyTable ALTER COLUMN foo DROP DEFAULT;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;##CHANGE COLUMN&lt;/p&gt;
+
+&lt;p&gt;Used to rename a column, change its datatype, or move it within the schema. Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;ALTER TABLE MyTable CHANGE COLUMN foo bar VARCHAR(32) NOT NULL FIRST;
+ALTER TABLE MyTable CHANGE COLUMN foo bar VARCHAR(32) NOT NULL AFTER baz;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;##MODIFY COLUMN&lt;/p&gt;
+
+&lt;p&gt;Used to do everything CHANGE COLUMN can, but without renaming the column. Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;ALTER TABLE MyTable MODIFY COLUMN foo VARCHAR(32) NOT NULL AFTER baz;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The official documentation for ALTER TABLE (for MySQL 5.1) is &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.1/en/alter-table.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

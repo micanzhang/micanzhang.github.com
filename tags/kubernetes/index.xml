@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubernetes on micanzhang</title>
+    <link>http://micanzhang.github.io/tags/kubernetes/</link>
+    <description>Recent content in Kubernetes on micanzhang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 22 Jul 2015 15:17:22 +0800</lastBuildDate>
+    <atom:link href="http://micanzhang.github.io/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>kubernetes notes</title>
+      <link>http://micanzhang.github.io/post/2015-07-22-kubernetes-notes/</link>
+      <pubDate>Wed, 22 Jul 2015 15:17:22 +0800</pubDate>
+      
+      <guid>http://micanzhang.github.io/post/2015-07-22-kubernetes-notes/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=Fcb4aoSAZ98&#34;&gt;Docker Containers and Kubernetes with Brian Dorsey&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;docker container is just a isolated process.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;import-concepts:4027a20f0efcd11f678bb1642890c29c&#34;&gt;import concepts&lt;/h2&gt;
+
+&lt;h3 id=&#34;pod:4027a20f0efcd11f678bb1642890c29c&#34;&gt;Pod&lt;/h3&gt;
+
+&lt;p&gt;means a docker container or some docker container which connectly tighly&lt;/p&gt;
+
+&lt;h3 id=&#34;label:4027a20f0efcd11f678bb1642890c29c&#34;&gt;Label&lt;/h3&gt;
+
+&lt;p&gt;key value&lt;/p&gt;
+
+&lt;h3 id=&#34;replacation-controller:4027a20f0efcd11f678bb1642890c29c&#34;&gt;replacation controller&lt;/h3&gt;
+
+&lt;p&gt;interactive&lt;/p&gt;
+
+&lt;h3 id=&#34;service:4027a20f0efcd11f678bb1642890c29c&#34;&gt;service&lt;/h3&gt;
+
+&lt;p&gt;load balance&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
