@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Emacs on micanzhang</title>
+    <link>http://micanzhang.github.io/tags/emacs/</link>
+    <description>Recent content in Emacs on micanzhang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 17 Nov 2015 16:59:16 +0800</lastBuildDate>
+    <atom:link href="http://micanzhang.github.io/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>develop golang with emacs</title>
+      <link>http://micanzhang.github.io/post/develop-golang-with-emacs/</link>
+      <pubDate>Tue, 17 Nov 2015 16:59:16 +0800</pubDate>
+      
+      <guid>http://micanzhang.github.io/post/develop-golang-with-emacs/</guid>
+      <description>
+
+&lt;p&gt;本文所有的&lt;code&gt;emacs&lt;/code&gt;配置都可以在&lt;a href=&#34;https://github.com/micanzhang/.emacs.d/blob/master/lisp/init-go.el&#34;&gt;https://github.com/micanzhang/.emacs.d/blob/master/lisp/init-go.el&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;说明:cbe3f22b024b0808a5c43c5d9101cdb3&#34;&gt;说明&lt;/h2&gt;
+
+&lt;p&gt;因为我的包都是通过&lt;a href=&#34;http://www.emacswiki.org/emacs/ELPA&#34;&gt;MELPA&lt;/a&gt;来管理的，大部分包都可以在&lt;a href=&#34;https://melpa.org/&#34;&gt;https://melpa.org/&lt;/a&gt;找到.&lt;/p&gt;
+
+&lt;h2 id=&#34;配置-gopath:cbe3f22b024b0808a5c43c5d9101cdb3&#34;&gt;配置&lt;code&gt;GOPATH&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;如果你的所有项目使用同一个&lt;code&gt;GOPATH&lt;/code&gt;, 那么你可以通过emacs配置文件中加入:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;(setenv &amp;quot;GOPATH&amp;quot; &amp;quot;/your/golang/code&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;同时把&lt;code&gt;go&lt;/code&gt;编译好的可执行文件所在的文件夹加入到&lt;code&gt;PATH&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;(setq exec-path (cons &amp;quot;/usr/local/go/bin&amp;quot; exec-path)) ;;add go default binary directory 
+(setq exec-path (cons &amp;quot;/your/golang/code/bin&amp;quot; exec-path)) ;;add binary directory which build from your go code
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;go-mode:cbe3f22b024b0808a5c43c5d9101cdb3&#34;&gt;go-mode&lt;/h2&gt;
+
+&lt;p&gt;配置&lt;code&gt;go-mode&lt;/code&gt;相对简单：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;(require-package &#39;go-mode)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;go-mode的一些特性:cbe3f22b024b0808a5c43c5d9101cdb3&#34;&gt;go-mode的一些特性：&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;集成&lt;code&gt;gofmt&lt;/code&gt;, 可以使用emacs hook来实现保存时自动实行&lt;code&gt;gofmt&lt;/code&gt;, 具体命令是&lt;code&gt;gofmt-before-save&lt;/code&gt;, 也可以使用&lt;code&gt;goimports&lt;/code&gt;替换&lt;code&gt;gofmt&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;集成&lt;code&gt;godoc&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;集成 playground.&lt;/li&gt;
+&lt;li&gt;管理依赖(import)
+
+&lt;ul&gt;
+&lt;li&gt;通过&lt;code&gt;go-goto-imports&lt;/code&gt;命令跳转到当前文件的代码import区块.&lt;/li&gt;
+&lt;li&gt;可以通过命令(&lt;code&gt;go-import-add&lt;/code&gt;)和快捷键(&lt;code&gt;C-c C-a&lt;/code&gt;)开import包，支持tab自动补全.&lt;/li&gt;
+&lt;li&gt;可以使用命令(&lt;code&gt;go-remove-unused-imports&lt;/code&gt;)移除没有使用或者注释的包.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;集成&lt;code&gt;dodef&lt;/code&gt;
+
+&lt;ul&gt;
+&lt;li&gt;使用快捷键(&lt;code&gt;C-c C-d&lt;/code&gt;)显示表达式的描述，比如类型的具体信息， 函数的参数和返回值类型.&lt;/li&gt;
+&lt;li&gt;跳转到定义(&lt;code&gt;C-c C-j&lt;/code&gt;), 分屏跳转到定义(&lt;code&gt;C-x 4 C-c C-j&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;需要安装&lt;code&gt;godef&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;对&lt;code&gt;imenu&lt;/code&gt;做了基本支持.&lt;/li&gt;
+&lt;li&gt;内建代码覆盖测试的显示.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;非&lt;code&gt;MELPA&lt;/code&gt;请参考&lt;a href=&#34;https://github.com/dominikh/go-mode.el&#34;&gt;&lt;code&gt;go-mode&lt;/code&gt;的github仓库地址&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;自动补全:cbe3f22b024b0808a5c43c5d9101cdb3&#34;&gt;自动补全&lt;/h2&gt;
+
+&lt;h2 id=&#34;goimports:cbe3f22b024b0808a5c43c5d9101cdb3&#34;&gt;goimports&lt;/h2&gt;
+
+&lt;h2 id=&#34;oracle:cbe3f22b024b0808a5c43c5d9101cdb3&#34;&gt;oracle&lt;/h2&gt;
+
+&lt;p&gt;参考： &lt;a href=&#34;http://tleyden.github.io/blog/2014/05/22/configure-emacs-as-a-go-editor-from-scratch/&#34;&gt;http://tleyden.github.io/blog/2014/05/22/configure-emacs-as-a-go-editor-from-scratch/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
